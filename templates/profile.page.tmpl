@@ -1,0 +1,60 @@
+{{template "base" .}}
+{{define "title"}}Profile{{end}}
+{{define "css" }}
+    <link rel="stylesheet" href="/static/css/profile.css">
+{{end}}
+{{define "main"}}
+    <div class="d-flex justify-content-center">
+    <div id="profileInfo" >
+        <div class="row">
+            <div class="col d-flex align-items-center">
+                <h1>{{.User.Name}} {{.User.Lastname}} {{.User.Email}}</h1>
+            </div>
+            <div class="col d-flex justify-content-end"><div id="avatar"><img src="/static/img/avatar.png" alt="Avatar"></div></div>
+        </div>
+{{/*        <div class="row">*/}}
+{{/*            <form class="d-flex align-items-end my-1">*/}}
+{{/*                <div class="mb-3 ">*/}}
+{{/*                    <input placeholder="New name" type="text" class="form-control" id="InputName">*/}}
+{{/*                </div>*/}}
+{{/*                <button style="height: 40px; width: 200px" type="submit" class="btn btn-primary ms-4">Chane name</button>*/}}
+{{/*            </form>*/}}
+{{/*            <form class="d-flex align-items-end my-1">*/}}
+{{/*                <div class="mb-3 ">*/}}
+{{/*                    <input placeholder="New email" type="email" class="form-control" id="InputEmail">*/}}
+{{/*                </div>*/}}
+{{/*                <button style="height: 40px; width: 200px" type="submit" class="btn btn-primary ms-4">Change name</button>*/}}
+{{/*            </form>*/}}
+{{/*            <form class="d-flex align-items-end my-1">*/}}
+{{/*                <div class="mb-3 ">*/}}
+{{/*                    <input placeholder="New password" type="password" class="form-control" id="InputPassword">*/}}
+{{/*                </div>*/}}
+{{/*                <button style="height: 40px; width: 200px" type="submit" class="btn btn-primary ms-4">Change passwordv</button>*/}}
+{{/*            </form>*/}}
+{{/*        </div>*/}}
+    </div>
+    </div>
+
+
+
+    <div class="container" id="profile">
+        <h1>My tickets</h1>
+        <table class="table table-dark">
+            <thead>
+            <tr>
+                <th scope="col">Ticket number</th>
+                <th>Event</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{range .Tickets}}
+            <tr>
+                <th scope="col">{{.TicketNumber}}</th>
+                <th scope="col"><a href="/event?id={{.EventId}}">Link for event</a></th>
+            </tr>
+            {{end}}
+        </table>
+    </div>
+
+{{end}}
+

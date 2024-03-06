@@ -1,0 +1,32 @@
+{{template "base" .}}
+{{define "title"}}Registration{{end}}
+{{define "css" }}
+    <link href="/static/css/login.css" rel="stylesheet">
+{{end}}
+{{define "main"}}
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form"  method="POST" action="/user/create">
+                {{ if .ErrorMsg}}
+                <div class="alert alert-danger">{{.ErrorMsg}}</div>
+                {{end}}
+                <input type="text" placeholder="Name" name="name"/>
+                <input type="text" placeholder="Lastname" name="lastname"/>
+                <input type="text" placeholder="Email" name="email"/>
+                <input type="password" placeholder="Password)" name="password"/>
+                <button type="submit">Register</button>
+                <p class="message">Already have an account?<a href="/login">Login</a></p>
+            </form>
+        </div>
+    </div>
+{{end}}
+
+
+
+
+
+
+
+
+
+

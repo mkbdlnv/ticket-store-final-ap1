@@ -1,0 +1,57 @@
+{{template "admin" .}}
+{{define "title"}}Add event{{end}}
+{{define "css" }}
+
+{{end}}
+{{define "main"}}
+    <form class="addEventForm" method="POST" action="/event/create" enctype="multipart/form-data">
+       
+
+        <div class="mb-3">
+            <label for="inputEventName" class="form-label">Event name</label>
+            <input type="text" name="name"  class="form-control" id="inputEventName" aria-describedby="nameHelp">
+           
+        </div>
+
+        <div class="mb-3">
+            <label for="inputEventDate" class="form-label">Date</label>
+            <input type="date" name="date"  class="form-control"  onclick="this.showPicker()" id="inputEventDate" aria-describedby="dateHelp">
+            
+        </div>
+        <div class="mb-3">
+            <label for="inputEventTime" class="form-label">Time</label>
+            <input type="time" name="time"  class="form-control"  onclick="this.showPicker()" id="inputEventTime" aria-describedby="timeHelp">
+            
+        </div>
+        <div class="mb-3">
+            <label for="inputEventVenue" class="form-label">Event location</label>
+            <input type="text" name="venue"  class="form-control" id="inputEventVenue" aria-describedby="venueHelp">
+            
+        </div>
+
+        <div class="mb-3">
+            <label for="inputEventDescription" class="form-label">Description</label>
+            <textarea name="description"  class="form-control" id="inputEventDescription" rows="3" aria-describedby="descriptionHelp"></textarea>
+            
+        </div>
+
+        <div class="mb-3">
+            <label for="inputEventPrice" class="form-label">Ticket price</label>
+            <input type="number" name="price"  class="form-control" id="inputEventPrice" aria-describedby="priceHelp">
+           
+        </div>
+        <div class="mb-3">
+            <label for="inputTicketAmount" class="form-label">Number of ticket</label>
+            <input type="number" name="ticket_quantity" min="0" step="1"  class="form-control" id="inputTicketAmount" aria-describedby="priceHelp">
+            
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Image</label>
+            <input  name="picture"  class="form-control" type="file" id="formFile" accept="image/png, image/gif, image/jpeg">
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+{{end}}
+
+
+

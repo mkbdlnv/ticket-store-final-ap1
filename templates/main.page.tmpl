@@ -1,0 +1,54 @@
+{{template "base" .}}
+{{define "title"}}Главная{{end}}
+{{define "css" }}
+    <link rel="stylesheet" href="/static/css/home.css">
+{{end}}
+
+{{define "main"}}
+    <div class="container-fluid mt-6">
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/static/img/carousel_img1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/img/carousel_img2.jpg"  class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/img/carousel_img3.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="container mt-5 mb-5">
+        <h1 style="color:white;">Events </h1>
+        <hr style="color: white;">
+        <div class="row d-flex justify-content-around">
+
+            <div class="d-flex justify-content-between col-md-4 eventCard">
+                {{ range .Events}}
+                <div class="card">
+                    <img src="/static/img/{{.ImagePath}}" class="card-img-top img-event" alt="Event 1">
+                    <div class="card-body">
+                        <h5 class="card-title">{{.Name}}</h5>
+                        <p class="card-text">{{.Description}}</p>
+                        <p class="card-text text-end  fw-bold">{{.TicketPrice}} tenge</p>
+
+                        <a href="/event?id={{.ID}}" class="btn btn-primary">More details</a>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+
+
+        </div>
+    </div>
+{{end}}

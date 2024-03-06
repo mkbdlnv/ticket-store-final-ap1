@@ -1,0 +1,38 @@
+{{template "base" .}}
+{{define "title"}}Event{{end}}
+{{define "css" }}
+    <link href="/static/css/events.css" rel="stylesheet">
+{{end}}
+{{define "main"}}
+    <div class="container" id="event">
+        <h2>{{.Event.Name}}</h2>
+        <div class="row">
+            <div class="col-3">  <img src="/static/img/{{.Event.ImagePath}}" class="card-img-top" alt="Event 1"></div>
+            <div class="col-9">
+                <p class="card-text">{{.Event.Description}}</p>
+                <p class="card-text">Venue: {{.Event.Venue}}</p>
+                <p class="card-text">Date: {{.FormatDate}}</p>
+                <p class="card-text">Time: {{.FormatTime}}</p>
+                <p class="fw-bold">Price: {{.Event.TicketPrice}} tenge</p>
+            </div>
+        </div>
+        <div class="row">
+            <form action="/ticket/create" id="orderForm" method="POST">
+                <input type="hidden" value="{{.Event.ID}}" name="event_id">
+                <button type="submit" class="btn btn-primary">Buy ticket</button>
+            </form>
+        </div>
+    </div>
+{{end}}
+
+
+
+
+
+
+
+
+
+
+
+

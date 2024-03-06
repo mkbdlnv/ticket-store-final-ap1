@@ -1,0 +1,28 @@
+.card{
+    min-height: 400px;
+    max-width: 400px;
+
+}
+
+
+
+#event{
+    margin-top: 100px;
+}
+
+#orderForm{
+    display: flex;
+}
+
+#orderForm button{
+    width: 100%;
+}
+
+.img-event{
+    height: 250px;
+    width: 400px;
+}
+
+.card-text, h2, p{
+    color: white;
+}
